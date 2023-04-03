@@ -8,16 +8,14 @@
  *
  * Return: dest
  */
-char *_memcpy(char *dest, const char *src, size_t n)
+char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	char *dst_ptr = dest;
-	const char *src_ptr = src;
+	char *start_dest = dest;
+	char *end_dest = dest + n;
 
-	while (n--)
-		*dst_ptr++ = *src_ptr++;
+	while (dest < end_dest)
+		*dest++ = *src++;
 
-	{
-		return (dest);
-	}
+	return (start_dest);
 }
 
