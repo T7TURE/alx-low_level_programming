@@ -1,17 +1,17 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * argstostr - concatenates all arguments of program
- * @ac: argument count
- * @av: argument vector
- *
- * Return: pointer to new string, or NULL on failure
+ * argstostr -  Entry point
+ *@ac: int
+ *@av: double pointer
+ * Return: Always 0.
  */
 char *argstostr(int ac, char **av)
 {
-	char *str, *ptr;
-	int i, j, len = 0;
+	int i, j, k, l = 0;
+	char *s;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -19,30 +19,26 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
-			len++;
-
-		len++;
+			l++;
 	}
+	l += ac;
 
-	str = malloc(len * sizeof(char));
-
-
-	if (str == NULL)
+	s = malloc(sizeof(char) * l + 1);
+	k = 0;
+	if (s == NULL)
 		return (NULL);
-
-	ptr = str;
 
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
-			*ptr++ = av[i][j];
-
-		*ptr++ = '\n';
+		{
+			s[k] = av[i][j];
+			k++;
+		}
+		if (s[k] == '\0')
+		{
+			s[k++] = '\n';
+		}
 	}
-
-	*ptr = '\0';
-
-
-	return (str);
+	return (s);
 }
-
