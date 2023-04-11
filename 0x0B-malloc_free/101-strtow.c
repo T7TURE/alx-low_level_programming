@@ -27,7 +27,6 @@ char **strtow(char *str)
 		return (NULL);
 	a = malloc(sizeof(char *) * (word_count + 1));
 	if (a == NULL)
-
 		return (NULL);
 	for (i = 0, k = i; current_word < word_count; i++, word_len = 0, k = i)
 	{
@@ -41,7 +40,6 @@ char **strtow(char *str)
 			while (current_word-- >= 0)
 				free(a[current_word]);
 			free(a);
-
 			return (NULL);
 		}
 		for (n = 0; i < k; i++, n++)
@@ -51,3 +49,4 @@ char **strtow(char *str)
 	a[word_count] = NULL;
 	return (a);
 }
+
