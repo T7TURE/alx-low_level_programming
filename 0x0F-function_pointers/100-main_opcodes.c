@@ -8,6 +8,7 @@
  *
  * Return: Always 0.
  */
+
 int main(int argc, char *argv[])
 {
 	int bytes, index;
@@ -44,5 +45,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
-
