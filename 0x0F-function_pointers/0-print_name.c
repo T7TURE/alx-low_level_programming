@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "function_pointers.h"
 
 /**
@@ -9,17 +10,15 @@
  *
  * Return: void
  */
-
 void print_name(char *name, void (*f)(char *))
 {
-	if (*name != '\0')
+	char *p = name;
+
+	while (*p != '\0')
 	{
-		f(name);
-		print_name(name + 1, f);
+		f(p);
+		p++;
 	}
-	else
-	{
-		f("\n");
-	}
+	f("\n");
 }
 
